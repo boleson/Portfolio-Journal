@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Trading Journal</title>
+
+    <link rel="stylesheet" href="/Portfolio-Journal/index.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<section class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+
+                <i class="fas fa-chart-line"></i>
+
+                <h1>Trading Journal</h1>
+
+                <p>
+                    Welcome back. Login to access
+                    your private trading dashboard.
+                </p>
+
+            </div>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter email"
+                    required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required>
+
+                </div>
+
+                <button
+                type="submit"
+                class="auth-btn">
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+
+                <p>
+                    Don't have an account?
+                    <a href="/Portfolio-Journal/signup.html">
+                        Create Account
+                    </a>
+                </p>
+
+            </div>
+
+            <div class="back-home">
+
+                <a href="/Portfolio-Journal/index.html">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back To Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script type="module">
+
+import { auth }
+from "/Portfolio-Journal/firebase-config.js";
+
+import {
+signInWithEmailAndPassword
+}
+from
+"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",
+async function(e){
+
+e.preventDefault();
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert("Login Successful");
+
+window.location.href =
+"journal.html";
+
+}catch(error){
+
+alert("Invalid Email or Password");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

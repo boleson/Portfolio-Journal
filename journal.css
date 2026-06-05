@@ -1,0 +1,398 @@
+/* =========================================
+   JOURNAL DASHBOARD CSS
+========================================= */
+
+:root{
+
+    --bg:#050816;
+    --card:#0f172a;
+    --gold:#f5b700;
+    --blue:#0ea5e9;
+    --text:#ffffff;
+    --muted:#b4b4b4;
+    --border:rgba(255,255,255,0.08);
+
+    --shadow:
+    0 8px 30px rgba(0,0,0,.3);
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 8%;
+
+    background:
+    rgba(5,8,22,0.8);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-bottom:
+    1px solid var(--border);
+
+    z-index:1000;
+}
+
+.logo{
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    color:var(--gold);
+    text-transform: uppercase;
+}
+
+#logoutBtn{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--gold);
+
+    color:black;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#logoutBtn:hover{
+
+    transform:
+    translateY(-3px);
+}
+
+/* =========================================
+   GENERAL
+========================================= */
+
+.section{
+
+    padding:50px 8%;
+}
+
+.container{
+
+    width:100%;
+    max-width:1300px;
+
+    margin:auto;
+}
+
+.section-title{
+
+    font-size:2.5rem;
+
+    margin-bottom:40px;
+
+    color:var(--gold);
+
+    text-align:center;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   GLASS CARD
+========================================= */
+
+.about-card,
+.stat-card{
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid var(--border);
+
+    backdrop-filter:
+    blur(15px);
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+.stat-card{
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+
+    transform:
+    translateY(-5px);
+}
+
+.stat-card h2{
+
+    font-size:2.8rem;
+
+    color:var(--gold);
+
+    margin-bottom:10px;
+}
+
+.stat-card p{
+
+    color:var(--muted);
+}
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.about-card{
+
+    padding:35px;
+}
+
+.about-card h2{
+
+    margin-bottom:20px;
+
+    color:var(--gold);
+}
+
+form input,
+form select{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    rgba(255,255,255,0.06);
+
+    color: white;
+
+    outline:none;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+.buy {
+    color: green;
+}
+.sell {
+    color: red;
+}
+.win {
+    color: blue;
+}
+.loss {
+    color: red;
+    
+}
+
+form input::placeholder{
+
+    color:#ccc;
+}
+
+form button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--gold),
+    #ffd95c
+    );
+
+    color:black;
+    font-size: 18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+form button:hover{
+
+    transform:
+    translateY(-3px);
+}
+
+/* =========================================
+   RR CALCULATOR
+========================================= */
+#rrEntry {
+    padding: 10px;
+    font-size: 15px;
+}
+#rrSL{
+    padding: 10px;
+    font-size: 15px;
+    /* color: red; */
+    /* text-align: left; */
+}
+#rrTP{
+    padding: 10px;
+    font-size: 15px;
+}
+#calculateRR {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--gold);
+    background-color: var(--blue);
+}
+
+#rrResult{
+
+    color:var(--blue);
+
+    font-size: 2rem;
+
+    margin-top: 10px;
+}
+
+/* =========================================
+   CHART SECTION
+========================================= */
+
+canvas{
+
+    width:100% !important;
+
+    max-height:400px;
+}
+
+/* =========================================
+   TRADE TABLE
+========================================= */
+
+#tradeTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+}
+
+#tradeTable thead{
+
+    background:
+    rgba(255,255,255,0.08);
+}
+
+#tradeTable th{
+
+    padding:18px;
+
+    text-align:left;
+
+    color:var(--gold);
+
+    font-size:1rem;
+}
+
+#tradeTable td{
+
+    padding:16px;
+
+    border-top:
+    1px solid rgba(255,255,255,0.06);
+
+    color:var(--muted);
+}
+
+#tradeTable tr:hover{
+
+    background:
+    rgba(255,255,255,0.03);
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#02040a;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--gold);
+
+    border-radius:20px;
+}

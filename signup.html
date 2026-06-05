@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Create Account</title>
+
+<link rel="stylesheet"
+href="/Portfolio-Journal/index.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <section class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+
+                <i class="fas fa-user-plus"></i>
+
+                <h1>Create Account</h1>
+                    <p>
+                        Create your private account
+                        to access the Forex Trading Journal.
+                    </p>
+
+                </div>
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Enter Full Name"
+                        required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter Email"
+                        required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input
+                        type="password"
+                        id="password"
+                        placeholder="Create Password"
+                        required>
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>Confirm Password</label>
+                        <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm Password"
+                        required>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="auth-btn">
+
+                        Create Account
+                    </button>
+
+                </form>
+                <div class="auth-footer">
+                    <p>
+                        Already have an account?
+
+                        <a href="/Portfolio-Journal/login.html">Login</a>
+                    </p>
+                </div>
+                <div class="back-home">
+                    <a href="/Portfolio-Journal/index.html">
+                        <i class="fas fa-arrow-left"></i>
+                        Back To Portfolio
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <script type="module">
+
+        import { auth }
+        from "/Portfolio-Journal/firebase-config.js";
+
+        import {
+        createUserWithEmailAndPassword
+        }
+        from
+        "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+        document
+        .getElementById("signupForm")
+        .addEventListener("submit",
+        async function(e){
+
+        e.preventDefault();
+
+        const email =
+        document.getElementById("email").value;
+
+        const password =
+        document.getElementById("password").value;
+
+        const confirm =
+        document.getElementById("confirmPassword").value;
+
+        if(password !== confirm){
+
+        alert("Passwords do not match");
+
+        return;
+
+        }
+
+        try{
+
+        await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+        );
+
+        alert("Account Created");
+
+        window.location.href =
+        "login.html";
+
+        }catch(error){
+
+        alert(error.message);
+
+        }
+
+     });
+
+    </script>
+    
+
+</body>
+</html>
