@@ -8,7 +8,7 @@ db,
 auth
 }
 from
-"/Portfolio Trading Journal/firebase-config.js";
+"/PortfolioJournal/firebase-config.js";
 
 import {
 onAuthStateChanged
