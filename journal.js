@@ -20,7 +20,9 @@ import {
 
 collection,
 addDoc,
-getDocs
+getDocs,
+deleteDoc,
+doc
 
 }
 from
@@ -131,10 +133,21 @@ alert(
 loadTrades();
 
 });
+async function deleteTrade(id){
+    try{
+        const user = auth.currentUser;
+
+        await deleteDoc(doc(db, "users", user.uid, "trades", id));
+        alert("Trade deleted successfully ");
+        loadTrades();
+    }catch(error) {
+        alert(error.message);
+    }
+}
 
 async function loadTrades(){
 
-tableBody.innerHTML="";
+tableBody.innerHTML= "";
 
 let wins = 0;
 let losses = 0;
@@ -149,8 +162,10 @@ collection(db,"users",user.uid,"trades")
 
 snapshot.forEach(doc=>{
 
-const trade =
-doc.data();
+const trade = {
+    id: doc.id,
+    ...doc.data()
+};
 trades.push(trade);
 
 if(
@@ -166,9 +181,21 @@ tableBody.innerHTML += `
 <td>${trade.pair}</td>
 <td>${trade.direction}</td>
 <td>${trade.result}</td>
+<td>
+<button class ="delete-btn" data-id="${trade.id}">
+Delete
+</button>
+</td>
+
 </tr>
 `;
 
+});
+const deleteButtons = document.querySelectorAll(".delete-btn");
+deleteButtons.forEach((button)=>{
+    button.addEventListener("click", ()=>{
+        deleteTrade(button.dataset.id);
+    });
 });
 
 document.getElementById(

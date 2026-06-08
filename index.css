@@ -127,6 +127,10 @@ body{
 /* =====================================
    NAVBAR
 ===================================== */
+.logoo {
+    /* width: 250px; */
+    height: 50px;
+}
 
 .navbar{
 
@@ -255,6 +259,9 @@ body{
     font-weight: 500;
     border: 0 solid;
     background-color: var(--bg-color);
+}
+.sidebar .logoo {
+    margin-left: 85px;
 }
 .sidebar-links a {
     font-size: 39px;
@@ -914,6 +921,9 @@ footer{
         width: 100%;
     }
 
+    .navbar .logoo {
+        display: none;
+    }
     .logo{
         font-size:1.4rem;
         position: relative;
